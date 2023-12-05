@@ -20,6 +20,11 @@ public class ColourTable {
     }
 
     public void add(int[] rgbColour){
-
+        if (!isValidRGB(rgbColour)){
+            throw new IllegalArgumentException("Invalid RGB Format. Must be between 0-255");
+        }
+    }
+    public boolean isValidRGB(int[] rgbColour){
+        return Arrays.stream(rgbColour).allMatch(value -> value >= 0 && value <= 255);
     }
 }
