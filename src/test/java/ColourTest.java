@@ -18,4 +18,10 @@ public class ColourTest {
     public void testInvalidPaleteSizeTwo(){
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(-1));
     }
+
+    @Test
+    public void testInvalidPaleteSizeThree(){
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(1025));
+    }
+
 }
