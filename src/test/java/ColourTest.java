@@ -10,18 +10,23 @@ public class ColourTest {
     }
 
     @Test
-    public void testInValidPaleteSizeOne(){
+    public void testInValidPaleteSize(){
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(5));
     }
 
     @Test
-    public void testInvalidPaleteSizeTwo(){
+    public void testInvalidPaleteSizeUnderBounds(){
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(-1));
     }
 
     @Test
-    public void testInvalidPaleteSizeThree(){
+    public void testInvalidPaleteSizeAboveBounds(){
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(1025));
+    }
+
+    @Test
+    public void testInvalidPaleteSizeNotPowerOfTwo(){
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(7));
     }
 
 }
