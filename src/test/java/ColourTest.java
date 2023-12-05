@@ -40,4 +40,11 @@ public class ColourTest {
         assertThrows(IllegalArgumentException.class, () -> table.add(new int[]{255, 0, 300}));
     }
 
+    @Test
+    public void testAddPaleteExceeds() {
+        ColourTable table = new ColourTable(4);
+        table.add(new int[]{0, 0, 0});
+        table.add(new int[]{0, 0, 0});
+        assertThrows(IllegalArgumentException.class, () -> table.add(new int[]{0, 0, 255}));
+    }
 }
