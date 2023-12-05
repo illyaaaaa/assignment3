@@ -14,3 +14,8 @@ public class ColourTable {
     public int getPaletteSize() {
         return paletteSize;
     }
+
+    public boolean isValidPaletteSize(int size){
+        return size > 1 && (size & (size - 1)) == 0 && size < 1025;
+    }
+}
