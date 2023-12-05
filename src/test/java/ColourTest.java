@@ -34,4 +34,10 @@ public class ColourTest {
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(1));
     }
 
+    @Test
+    public void testAddInvalidRGB() {
+        ColourTable table = new ColourTable(8);
+        assertThrows(IllegalArgumentException.class, () -> table.add(new int[]{255, 0, 300}));
+    }
+
 }
