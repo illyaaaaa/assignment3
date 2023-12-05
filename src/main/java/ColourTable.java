@@ -18,4 +18,8 @@ public class ColourTable {
     public boolean isValidPaletteSize(int size){
         return size > 1 && (size & (size - 1)) == 0 && size < 1025;
     }
+
+    public void add(int[] rgbColour){
+
+    }
 }
