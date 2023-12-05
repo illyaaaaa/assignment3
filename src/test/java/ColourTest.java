@@ -29,4 +29,9 @@ public class ColourTest {
         assertThrows(IllegalArgumentException.class, () -> new ColourTable(7));
     }
 
+    @Test
+    public void testInvalidPaletteSizeNoSpecificSize() {
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(1));
+    }
+
 }
