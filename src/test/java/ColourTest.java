@@ -9,4 +9,10 @@ public class ColourTest {
         assertEquals(4,table.getPaletteSize());
     }
 
+    @Test
+    public void testInValidPaleteSizeOne(){
+        assertThrows(IllegalArgumentException.class, () -> new ColourTable(5));
+    }
+
+
 }
