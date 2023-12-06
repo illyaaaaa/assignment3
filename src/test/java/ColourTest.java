@@ -47,6 +47,10 @@ public class ColourTest {
         assertArrayEquals(new int[]{255, 0, 0}, table.getPalette()[0]);
     }
 
-
-
+    @Test
+    public void testAddSameColor() {
+        ColourTable table = new ColourTable(4);
+        table.add(new int[]{255, 0, 0});
+        assertThrows(IllegalArgumentException.class, () -> table.add(new int[]{255, 0, 0}));
+    }
 }
