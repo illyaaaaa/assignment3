@@ -27,6 +27,10 @@ public class ColourTable {
             throw new IllegalArgumentException("Invalid RGB Format. Must be between 0-255");
         }
 
+        if (isColorInPalette(rgbColour)) {
+            throw new IllegalArgumentException("Color already exists in the palette.");
+        }
+
         if (isPaletteFull()) {
             throw new IllegalArgumentException("Exceeded the capacity of the ColourTable.");
         }
@@ -35,12 +39,21 @@ public class ColourTable {
         coloursAdded++;
     }
 
-    private boolean isPaletteFull() {
+    public boolean isPaletteFull() {
         return coloursAdded == paletteSize;
     }
 
+    private boolean isColorInPalette(int[] rgbColour) {
+        for (int i = 0; i < coloursAdded; i++) {
+            if (Arrays.equals(palette[i], rgbColour)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isValidRGB(int[] rgbColour) {
-        return Arrays.stream(rgbColour).allMatch(value -> value >= 0 && value <= 255) && rgbColour.length == 3;
+        return Arrays.stream(rgbColour).allMatch(value -> value >= 0 && value <= 255) ;
     }
 
     public int[][] getPalette() {
