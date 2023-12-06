@@ -40,7 +40,12 @@ public class ColourTest {
         assertThrows(IllegalArgumentException.class, () -> table.add(new int[]{255, 0, 300}));
     }
 
-
+    @Test
+    public void testAddValidRGB() {
+        ColourTable table = new ColourTable(4);
+        table.add(new int[]{255, 0, 0});
+        assertArrayEquals(new int[]{255, 0, 0}, table.getPalette()[0]);
+    }
 
 
 
